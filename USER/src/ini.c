@@ -27,13 +27,14 @@ void initializ (void)
 	SysTick_Config(SystemCoreClock/999);
 //========================================================
 }
-
+/************************************************************/
 void SysTick_Handler(void)
 {
 	button_chatter ();
 }
 
- uint8_t button_chatter ()
+/************************************************************/
+ inline static uint8_t button_chatter ()
 {  
 	if (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0))
 	{
@@ -46,7 +47,7 @@ void SysTick_Handler(void)
 			if (button_state==0)
 			{
 				button_state= 1;
-				GPIOD->ODR^=GPIO_ODR_ODR_13;
+				return button_state;
 			}
 		}
 	}
@@ -63,3 +64,4 @@ void SysTick_Handler(void)
 	}
 	return button_state;
 }
+/**********************************************************/

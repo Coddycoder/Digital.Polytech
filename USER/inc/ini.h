@@ -5,7 +5,7 @@
 void initializ (void);
 void SysTick_Handler(void);
 
-uint8_t button_chatter();
+inline static uint8_t button_chatter();
 extern uint8_t count;
 extern uint8_t button_state;
 #endif
